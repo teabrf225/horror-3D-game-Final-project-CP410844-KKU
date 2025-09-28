@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://d24mphxufus2g"]
+
+[ext_resource type="PackedScene" uid="uid://dshbh7cr3jm2j" path="res://model/tea.tscn" id="1_h5x5l"]
+[ext_resource type="Script" uid="uid://bt1gs46bx7wxx" path="res://model/player.gd" id="1_rq7no"]
+[ext_resource type="Script" uid="uid://by3qukxdm3h44" path="res://scripts/camera.gd" id="3_yok8e"]
+[ext_resource type="Script" uid="uid://duqvbxkgrho0c" path="res://scripts/flashlight.gd" id="4_t64tq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h5x5l"]
+radius = 0.15576172
+height = 1.0739746
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_rq7no")
+
+[node name="tea" parent="." instance=ExtResource("1_h5x5l")]
+transform = Transform3D(-0.29999998, 0, 2.6226832e-08, 0, 0.29999998, 0, -2.6226832e-08, 0, -0.29999998, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49015057, 0)
+shape = SubResource("CapsuleShape3D_h5x5l")
+
+[node name="Head" type="Node3D" parent="."]
+script = ExtResource("3_yok8e")
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, 0, 0.94083506, 0)
+
+[node name="Flashlight" type="SpotLight3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0, -0.02437836, 0)
+visible = false
+light_energy = 7.5
+light_volumetric_fog_energy = 7.5
+spot_range = 30.0
+spot_angle = 30.0
+spot_angle_attenuation = 6.7271614
+script = ExtResource("4_t64tq")

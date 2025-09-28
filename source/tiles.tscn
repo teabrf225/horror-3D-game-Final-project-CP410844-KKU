@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyby2bm7c644d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwuu5"]
+albedo_color = Color(0.36282945, 0.36282945, 0.36282945, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2wooh"]
+material = SubResource("StandardMaterial3D_cwuu5")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2wooh"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fug7p"]
+albedo_color = Color(0.3180196, 0.31801987, 0.31801972, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k1wfu"]
+material = SubResource("StandardMaterial3D_fug7p")
+size = Vector3(1, 4, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k1wfu"]
+points = PackedVector3Array(-0.5, -2, -0.5, -0.5, -2, 0.5, -0.5, 2, -0.5, 0.5, -2, -0.5, 0.5, -2, 0.5, -0.5, 2, 0.5, 0.5, 2, -0.5, 0.5, 2, 0.5)
+
+[node name="Tiles" type="Node"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 3)
+mesh = SubResource("BoxMesh_2wooh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2wooh")
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 2, -1)
+mesh = SubResource("BoxMesh_k1wfu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_k1wfu")
