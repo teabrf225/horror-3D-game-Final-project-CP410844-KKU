@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bweb8gnwtrqrx"]
+[gd_scene load_steps=9 format=3 uid="uid://bweb8gnwtrqrx"]
 
-[ext_resource type="MeshLibrary" uid="uid://b5dwhq1s02ipy" path="res://source/Tiles.meshlib" id="1_f8slr"]
-[ext_resource type="PackedScene" uid="uid://d24mphxufus2g" path="res://model/player.tscn" id="2_o201g"]
+[ext_resource type="MeshLibrary" uid="uid://b5dwhq1s02ipy" path="res://Source/Tiles.meshlib" id="1_f8slr"]
+[ext_resource type="PackedScene" uid="uid://d24mphxufus2g" path="res://Model/player.tscn" id="2_o201g"]
 [ext_resource type="PackedScene" uid="uid://dk7pfv0uynuxw" path="res://GUI/ui_ingame.tscn" id="3_o201g"]
+[ext_resource type="PackedScene" uid="uid://de4qboihm8c3u" path="res://Model/light_roof.tscn" id="4_vc6ml"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_62w18"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -13,11 +14,14 @@ sky_cover_modulate = Color(0.22670749, 0.22670749, 0.22670746, 1)
 sky_material = SubResource("ProceduralSkyMaterial_62w18")
 
 [sub_resource type="Environment" id="Environment_j8job"]
-background_mode = 2
+background_mode = 1
 sky = SubResource("Sky_8a836")
+tonemap_mode = 4
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
-fog_density = 0.25
+fog_density = 0.2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_3f78f"]
 size = Vector3(60, 1, 28)
@@ -49,13 +53,10 @@ data = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 4.5, 0)
 mesh = SubResource("BoxMesh_3f78f")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 0)
-light_energy = 1.5
-shadow_enabled = true
-distance_fade_enabled = true
-
 [node name="Player" parent="." instance=ExtResource("2_o201g")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, 0, 0)
 
 [node name="UI_Ingame" parent="." instance=ExtResource("3_o201g")]
+
+[node name="Light_Roof" parent="." instance=ExtResource("4_vc6ml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)

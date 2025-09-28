@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://de4qboihm8c3u"]
+
+[ext_resource type="Material" uid="uid://ccf03ffuya045" path="res://Materials/light.tres" id="1_y7j6o"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gj42e"]
+size = Vector3(2.5, 0.1, 0.5)
+
+[node name="Light_Roof" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_y7j6o")
+mesh = SubResource("BoxMesh_gj42e")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 2.5
+distance_fade_enabled = true

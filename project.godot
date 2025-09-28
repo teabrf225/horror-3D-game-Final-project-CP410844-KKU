@@ -15,6 +15,17 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 run/max_fps=60
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://GUI/": "green",
+"res://Materials/": "yellow",
+"res://Model/": "orange",
+"res://Scripts/": "red",
+"res://Source/": "purple",
+"res://World/": "blue"
+}
+
 [input]
 
 ui_left={

@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://d24mphxufus2g"]
 
-[ext_resource type="PackedScene" uid="uid://dshbh7cr3jm2j" path="res://model/tea.tscn" id="1_h5x5l"]
-[ext_resource type="Script" uid="uid://bt1gs46bx7wxx" path="res://model/player.gd" id="1_rq7no"]
-[ext_resource type="Script" uid="uid://by3qukxdm3h44" path="res://scripts/camera.gd" id="3_yok8e"]
-[ext_resource type="Script" uid="uid://duqvbxkgrho0c" path="res://scripts/flashlight.gd" id="4_t64tq"]
+[ext_resource type="PackedScene" uid="uid://dshbh7cr3jm2j" path="res://Model/tea.tscn" id="1_h5x5l"]
+[ext_resource type="Script" uid="uid://bt1gs46bx7wxx" path="res://Model/player.gd" id="1_rq7no"]
+[ext_resource type="Script" uid="uid://by3qukxdm3h44" path="res://Scripts/camera.gd" id="3_yok8e"]
+[ext_resource type="Script" uid="uid://duqvbxkgrho0c" path="res://Scripts/flashlight.gd" id="4_t64tq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h5x5l"]
 radius = 0.15576172
