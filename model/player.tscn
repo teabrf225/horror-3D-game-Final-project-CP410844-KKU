@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d24mphxufus2g"]
+[gd_scene load_steps=4 format=3 uid="uid://d24mphxufus2g"]
 
 [ext_resource type="PackedScene" uid="uid://dshbh7cr3jm2j" path="res://Model/tea.tscn" id="1_h5x5l"]
 [ext_resource type="Script" uid="uid://bt1gs46bx7wxx" path="res://Model/player.gd" id="1_rq7no"]
-[ext_resource type="Script" uid="uid://by3qukxdm3h44" path="res://Scripts/camera.gd" id="3_yok8e"]
-[ext_resource type="Script" uid="uid://duqvbxkgrho0c" path="res://Scripts/flashlight.gd" id="4_t64tq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h5x5l"]
 radius = 0.15576172
@@ -20,17 +18,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49015057, 0)
 shape = SubResource("CapsuleShape3D_h5x5l")
 
 [node name="Head" type="Node3D" parent="."]
-script = ExtResource("3_yok8e")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, 0, 0.94083506, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94083506, 0)
 
 [node name="Flashlight" type="SpotLight3D" parent="Head/Camera3D"]
-transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0, -0.02437836, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12120596, -0.43547535, 0)
 light_energy = 7.5
-light_volumetric_fog_energy = 7.5
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
 spot_range = 30.0
 spot_angle = 30.0
-spot_angle_attenuation = 6.7271614
-script = ExtResource("4_t64tq")
+spot_angle_attenuation = 3.1383407

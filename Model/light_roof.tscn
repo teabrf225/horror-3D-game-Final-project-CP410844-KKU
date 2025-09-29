@@ -12,5 +12,9 @@ material_override = ExtResource("1_y7j6o")
 mesh = SubResource("BoxMesh_gj42e")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_energy = 2.5
+light_energy = 2.0
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 1.5
+shadow_enabled = true
 distance_fade_enabled = true
+omni_range = 6.5

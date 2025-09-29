@@ -1,19 +1,16 @@
 [gd_scene load_steps=7 format=3 uid="uid://cyby2bm7c644d"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwuu5"]
-albedo_color = Color(0.36282945, 0.36282945, 0.36282945, 1)
+[ext_resource type="Material" uid="uid://cubk3dhm0xjnh" path="res://Materials/floor_concrete.tres" id="1_4cp4n"]
+[ext_resource type="Material" uid="uid://dkxs2w3mfxdpg" path="res://Materials/wall_concrete.tres" id="2_d23wt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2wooh"]
-material = SubResource("StandardMaterial3D_cwuu5")
+material = ExtResource("1_4cp4n")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2wooh"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fug7p"]
-albedo_color = Color(0.3180196, 0.31801987, 0.31801972, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_k1wfu"]
-material = SubResource("StandardMaterial3D_fug7p")
+material = ExtResource("2_d23wt")
 size = Vector3(1, 4, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k1wfu"]

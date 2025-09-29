@@ -1,14 +1,31 @@
 extends CharacterBody3D
 
+# movement
 var SPEED = 1.5
 var SPRINT_SPEED = 4.5
 const JUMP_VELOCITY = 3.5
+var CameraSensitivity = 0.05
+
+# camera/flashlight motion
+var yaw_input := 0.0
+var pitch_input := 0.0
+var flashlight_yaw := 0.0
+var flashlight_pitch := 0.0
+var head_yaw := 0.0
+var camera_pitch := 0.0
+
+var flashlight_speed := 10.0   # ความเร็วไฟฉาย
+var head_follow_speed := 3.5   # ความเร็วหัว/กล้องตามไฟฉาย
+
+@onready var head = $Head
+@onready var camera = $Head/Camera3D
+@onready var flashlight = $Head/Camera3D/Flashlight
 
 # stamina system
 var max_stamina := 100.0
 var stamina := 100.0
-var sprint_drain_rate := 15.0    # ลด 20 ต่อวินาที
-var sprint_regen_rate := 5.0    # ฟื้น 10 ต่อวินาที
+var sprint_drain_rate := 15.0
+var sprint_regen_rate := 5.0
 
 # refs
 var ORIGINAL_SPEED: float
@@ -16,24 +33,56 @@ var sprint_slider: Slider
 var fade_tween: Tween
 
 # colors
-var color_full := Color(1, 1, 1)          # ขาว
-var color_mid := Color(1, 1, 0.6)         # เหลืองจาง
-var color_low := Color(1, 0.2, 0.2)       # แดง
+var color_full := Color(1, 1, 1)          
+var color_mid := Color(1, 1, 0.6)         
+var color_low := Color(1, 0.2, 0.2)       
 
 # fade control
-var fade_delay := 0.5   # รอก่อน fade out (วินาที)
+var fade_delay := 0.5
 var fade_timer := 0.0
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	ORIGINAL_SPEED = SPEED
 	sprint_slider = get_node("/root/" + get_tree().current_scene.name + "/UI_Ingame/Sprint_Slider")
 	sprint_slider.min_value = 0.0
 	sprint_slider.max_value = 1.0
 	sprint_slider.value = 1.0
-	sprint_slider.modulate.a = 0.0   # เริ่มโปร่งใส
+	sprint_slider.modulate.a = 0.0
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		yaw_input -= event.relative.x * CameraSensitivity
+		pitch_input -= event.relative.y * CameraSensitivity
+		pitch_input = clamp(pitch_input, -50, 50)
+
+	if Input.is_action_just_pressed("flashlight"):
+		flashlight.visible = !flashlight.visible
+
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().quit()
 
 func _process(delta: float) -> void:
-	# stamina logic
+	# --- Flashlight lead ---
+	flashlight_yaw = lerp(flashlight_yaw, yaw_input, flashlight_speed * delta)
+	flashlight_pitch = lerp(flashlight_pitch, pitch_input, flashlight_speed * delta)
+
+	# จำกัด flashlight yaw ให้ห่างจาก head ไม่เกินตามที่กำหนดไว้
+	flashlight_yaw = clamp(flashlight_yaw, head_yaw - 90, head_yaw + 90)
+
+
+	# --- Head/Camera lag ---
+	head_yaw = lerp(head_yaw, flashlight_yaw, head_follow_speed * delta)
+	camera_pitch = lerp(camera_pitch, flashlight_pitch, head_follow_speed * delta)
+
+	rotation.y = deg_to_rad(head_yaw)
+	camera.rotation.x = deg_to_rad(camera_pitch)
+
+	# --- Flashlight offset ---
+	flashlight.rotation.y = deg_to_rad(flashlight_yaw - head_yaw)
+	flashlight.rotation.x = deg_to_rad(flashlight_pitch - camera_pitch)
+
+	# --- stamina logic ---
 	if SPEED == SPRINT_SPEED:
 		stamina = max(stamina - sprint_drain_rate * delta, 0)
 		if stamina <= 0:
@@ -41,30 +90,25 @@ func _process(delta: float) -> void:
 	else:
 		stamina = min(stamina + sprint_regen_rate * delta, max_stamina)
 
-	# update slider value
 	var stamina_ratio = stamina / max_stamina
 	sprint_slider.value = stamina_ratio
 
-	# fade in/out with delay
 	if stamina < max_stamina or SPEED == SPRINT_SPEED:
 		_show_stamina_bar()
-		fade_timer = 0.0   # reset timer เมื่อมีการใช้งาน stamina
+		fade_timer = 0.0
 	else:
-		# stamina เต็ม → เริ่มนับเวลา
 		fade_timer += delta
 		if fade_timer >= fade_delay:
 			_hide_stamina_bar()
 
-	# update color (interpolation เฉพาะ RGB)
 	var new_color: Color
 	if stamina_ratio > 0.5:
-		var t = (1.0 - stamina_ratio) * 2.0   # 0..0.5 → 0..1
+		var t = (1.0 - stamina_ratio) * 2.0
 		new_color = color_full.lerp(color_mid, t)
 	else:
-		var t = (0.5 - stamina_ratio) * 2.0   # 0.5..0 → 0..1
+		var t = (0.5 - stamina_ratio) * 2.0
 		new_color = color_mid.lerp(color_low, t)
 
-	# เซ็ตเฉพาะสี ไม่แตะ alpha
 	sprint_slider.modulate.r = new_color.r
 	sprint_slider.modulate.g = new_color.g
 	sprint_slider.modulate.b = new_color.b
@@ -95,8 +139,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-# ----------------------------------
-# helper: fade in/out stamina bar
+# --- stamina bar fade helpers ---
 func _show_stamina_bar():
 	if sprint_slider.modulate.a < 1.0:
 		_start_fade(1.0)

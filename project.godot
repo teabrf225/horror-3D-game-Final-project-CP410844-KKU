@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Frist-Horror-3D-Game-Small-Project"
+run/main_scene="uid://bweb8gnwtrqrx"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 run/max_fps=60
 config/icon="res://icon.svg"
@@ -23,6 +24,7 @@ folder_colors={
 "res://Model/": "orange",
 "res://Scripts/": "red",
 "res://Source/": "purple",
+"res://Texture/": "pink",
 "res://World/": "blue"
 }
 

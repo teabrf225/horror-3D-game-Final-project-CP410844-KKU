@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cubk3dhm0xjnh"]
+
+[ext_resource type="Texture2D" uid="uid://bxldcutk11o7w" path="res://Texture/concrete_floor.jpg" id="1_jb454"]
+
+[resource]
+albedo_color = Color(0.3180198, 0.31801978, 0.31801975, 1)
+albedo_texture = ExtResource("1_jb454")
