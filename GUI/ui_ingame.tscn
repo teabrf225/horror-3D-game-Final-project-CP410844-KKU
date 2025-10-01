@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk7pfv0uynuxw"]
+[gd_scene load_steps=7 format=3 uid="uid://dk7pfv0uynuxw"]
 
 [ext_resource type="PackedScene" uid="uid://d0l3elvqcral7" path="res://GUI/pause_menu.tscn" id="1_2e5gc"]
 [ext_resource type="Script" uid="uid://bgelyn7m3qebg" path="res://Scripts/ui_ingame.gd" id="1_op0ap"]
 [ext_resource type="PackedScene" uid="uid://c8scu0bsg8jh5" path="res://GUI/task_exit_door_ui.tscn" id="2_ysxqv"]
 [ext_resource type="FontFile" uid="uid://bifi57up4j8qq" path="res://font/NotoSansThai-Medium.ttf" id="4_ioqlx"]
+
+[sub_resource type="Theme" id="Theme_ioqlx"]
+default_font = ExtResource("4_ioqlx")
 
 [sub_resource type="ImageTexture" id="ImageTexture_u3iqr"]
 
@@ -15,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ioqlx")
 script = ExtResource("1_op0ap")
 
 [node name="Sprint_Slider" type="HSlider" parent="."]
