@@ -3,5 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://cwupsqsjnpifb" path="res://Texture/Steel3.jpg" id="1_hxbyo"]
 
 [resource]
-albedo_color = Color(0.34781694, 0.34781697, 0.3478169, 1)
 albedo_texture = ExtResource("1_hxbyo")
+albedo_texture_force_srgb = true

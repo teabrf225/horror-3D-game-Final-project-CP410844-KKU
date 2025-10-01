@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dtwfwyujwauy3"]
+
+[ext_resource type="Texture2D" uid="uid://73qarwid85qv" path="res://Texture/Steel2.jpg" id="1_7554p"]
+
+[resource]
+specular_mode = 1
+albedo_texture = ExtResource("1_7554p")
+albedo_texture_force_srgb = true

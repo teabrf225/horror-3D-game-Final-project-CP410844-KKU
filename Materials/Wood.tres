@@ -4,5 +4,5 @@
 
 [resource]
 shading_mode = 0
-albedo_color = Color(0.29954726, 0.29954752, 0.29954726, 1)
+albedo_color = Color(0.299547, 0.299548, 0.299547, 1)
 albedo_texture = ExtResource("1_b15q5")

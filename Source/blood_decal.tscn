@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfq8n2aknghua"]
+
+[ext_resource type="Texture2D" uid="uid://bo68dmshfjch1" path="res://Texture/Blood_decal.png" id="1_pxp77"]
+
+[node name="Blood_decal" type="Sprite3D"]
+shaded = true
+texture = ExtResource("1_pxp77")

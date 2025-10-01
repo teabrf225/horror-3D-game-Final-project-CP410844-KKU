@@ -3,5 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://b0pd8qka6tlcm" path="res://Texture/concrete-wall-texture.jpg" id="1_3xd3n"]
 
 [resource]
-albedo_color = Color(0.41598046, 0.41598046, 0.41598028, 1)
+albedo_color = Color(0.41598, 0.41598, 0.41598, 1)
 albedo_texture = ExtResource("1_3xd3n")

@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdfkn7ho7tfth"]
+
+[ext_resource type="Material" uid="uid://cubk3dhm0xjnh" path="res://Materials/floor_concrete.tres" id="1_kdpw2"]
+[ext_resource type="PackedScene" uid="uid://d24mphxufus2g" path="res://Model/player.tscn" id="2_jt3a4"]
+[ext_resource type="Material" uid="uid://dncpa4hi5s2qf" path="res://Materials/Copper.tres" id="3_u8hi6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g38k2"]
+material = ExtResource("1_kdpw2")
+flip_faces = true
+size = Vector3(10, 2, 10)
+
+[sub_resource type="Environment" id="Environment_235rk"]
+background_mode = 1
+background_energy_multiplier = 0.0
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.3649
+adjustment_enabled = true
+adjustment_brightness = 0.92
+adjustment_contrast = 0.83
+
+[sub_resource type="TextMesh" id="TextMesh_wuu5u"]
+material = ExtResource("3_u8hi6")
+text = "Sector: AKB-S "
+font_size = 7
+uppercase = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_g38k2")
+
+[node name="Player" parent="." instance=ExtResource("2_jt3a4")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.95739526, 0, -0.28878105, 0, 1, 0, 0.28878105, 0, -0.95739526, -0.09248474, 0.8766026, -1.0425818)
+fov = 21.5
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.54401714, 0.14700347, -0.8260965, 0.080980495, 0.989136, 0.12268742, 0.8351573, -0.0001536397, -0.55001134, -0.8783571, 1, -0.20046231)
+light_energy = 2.485
+light_indirect_energy = 5.619
+light_volumetric_fog_energy = 16.0
+distance_fade_enabled = true
+spot_range = 4096.0
+spot_angle = 70.98
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_235rk")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.9227199, 0, -0.38547137, 0, 1, 0, 0.38547137, 0, -0.9227199, 0.30265868, 0.86962414, 0)
+mesh = SubResource("TextMesh_wuu5u")

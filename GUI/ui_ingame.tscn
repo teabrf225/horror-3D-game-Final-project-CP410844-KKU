@@ -1,14 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk7pfv0uynuxw"]
+[gd_scene load_steps=6 format=3 uid="uid://dk7pfv0uynuxw"]
+
+[ext_resource type="PackedScene" uid="uid://d0l3elvqcral7" path="res://GUI/pause_menu.tscn" id="1_2e5gc"]
+[ext_resource type="Script" uid="uid://bgelyn7m3qebg" path="res://Scripts/ui_ingame.gd" id="1_op0ap"]
+[ext_resource type="PackedScene" uid="uid://c8scu0bsg8jh5" path="res://GUI/task_exit_door_ui.tscn" id="2_ysxqv"]
+[ext_resource type="FontFile" uid="uid://bifi57up4j8qq" path="res://font/NotoSansThai-Medium.ttf" id="4_ioqlx"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_u3iqr"]
 
 [node name="UI_Ingame" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_op0ap")
 
 [node name="Sprint_Slider" type="HSlider" parent="."]
 layout_mode = 1
@@ -18,11 +25,105 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -272.0
-offset_top = -32.0
-offset_right = 272.0
-offset_bottom = -16.0
+offset_top = -80.0
+offset_right = 271.99927
+offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_icons/grabber = SubResource("ImageTexture_u3iqr")
 max_value = 1.0
 step = 0.01
+
+[node name="task_exit_door_ui" parent="." instance=ExtResource("2_ysxqv")]
+
+[node name="ColorRect2" parent="task_exit_door_ui" index="1"]
+anchors_preset = -1
+anchor_bottom = 0.545
+offset_left = -216.0
+offset_top = -112.0
+offset_right = 216.0
+offset_bottom = 104.0
+
+[node name="RichTextLabel" parent="task_exit_door_ui" index="2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -96.0
+offset_right = 232.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LineEdit" parent="task_exit_door_ui" index="3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -28.0
+offset_right = 200.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="confirm" parent="task_exit_door_ui" index="4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = 72.0
+offset_right = 151.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" parent="task_exit_door_ui" index="5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = 72.0
+offset_right = -64.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pause_menu" parent="." instance=ExtResource("1_2e5gc")]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -439.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.78431374)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("4_ioqlx")
+theme_override_font_sizes/font_size = 16
+text = "Game developed by นายธนธร บุญเต็ม 663380267-3 AI  SEC01"
+
+[connection signal="text_submitted" from="task_exit_door_ui/LineEdit" to="." method="_on_code_submitted"]
+[connection signal="pressed" from="task_exit_door_ui/confirm" to="." method="confirm_password_exit_door"]
+[connection signal="pressed" from="task_exit_door_ui/back" to="." method="exit_password_exit_door"]
+[connection signal="pressed" from="pause_menu/VBoxContainer/resume" to="." method="resume_game"]
+[connection signal="pressed" from="pause_menu/VBoxContainer/quit_game" to="." method="quit_game"]
+
+[editable path="task_exit_door_ui"]
+[editable path="pause_menu"]

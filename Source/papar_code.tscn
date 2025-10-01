@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://uquvav30c4jv"]
+
+[ext_resource type="Script" uid="uid://d3d263qwd1tyr" path="res://Scripts/papar_code.gd" id="1_qksv8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cdymt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qksv8"]
+albedo_color = Color(0.74978, 0.74978, 0.74977994, 1)
+metallic = 1.0
+metallic_texture = SubResource("NoiseTexture2D_cdymt")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_24eek"]
+material = SubResource("StandardMaterial3D_qksv8")
+size = Vector2(0.2, 0.1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_m1j15"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dcluv"]
+albedo_color = Color(0.4506483, 0.4506483, 0.45064825, 1)
+metallic = 1.0
+metallic_texture = SubResource("NoiseTexture2D_m1j15")
+
+[sub_resource type="TextMesh" id="TextMesh_un8s4"]
+material = SubResource("StandardMaterial3D_dcluv")
+text = "text"
+font_size = 9
+depth = 0.001
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qksv8"]
+size = Vector3(0.20597076, 0.0058937073, 0.10482788)
+
+[node name="papar_code" type="RigidBody3D" node_paths=PackedStringArray("text_mesh")]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_qksv8")
+text_mesh = NodePath("MeshInstance3D/Text_MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.025, 0, 0, 0, 2.025, 0, 0, 0, 2.025, 0.0004975796, 0, 0)
+mesh = SubResource("PlaneMesh_24eek")
+
+[node name="Text_MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, -8.742277e-08, -3.8213705e-15, 0, -4.371139e-08, 1, -8.742277e-08, -1, -4.371139e-08, 0.0009943768, 0, 0)
+mesh = SubResource("TextMesh_un8s4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.025, 0, 0, 0, 2.025, 0, 0, 0, 2.025, 0.00028014183, 0.00032618642, 0.0005950928)
+shape = SubResource("BoxShape3D_qksv8")

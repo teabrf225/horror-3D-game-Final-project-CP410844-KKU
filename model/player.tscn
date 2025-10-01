@@ -1,14 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://d24mphxufus2g"]
+[gd_scene load_steps=9 format=3 uid="uid://d24mphxufus2g"]
 
 [ext_resource type="PackedScene" uid="uid://dshbh7cr3jm2j" path="res://Model/tea.tscn" id="1_h5x5l"]
 [ext_resource type="Script" uid="uid://bt1gs46bx7wxx" path="res://Model/player.gd" id="1_rq7no"]
+[ext_resource type="AudioStream" uid="uid://bj1pnoq3muhgr" path="res://Sound_Effects/walking-in-tunnel-393097.ogg" id="2_ieuix"]
+[ext_resource type="AudioStream" uid="uid://cwpis4n4g2ri2" path="res://Sound_Effects/run-fast-345728.ogg" id="3_416l5"]
+[ext_resource type="PackedScene" uid="uid://drjmrpete1yfw" path="res://Interact/interact_ray.tscn" id="3_qsoau"]
+[ext_resource type="AudioStream" uid="uid://uq37cmx7dr" path="res://Sound_Effects/heartbeat-sound-372448.ogg" id="4_p21r4"]
+[ext_resource type="AudioStream" uid="uid://b05x1upd2lv2m" path="res://Sound_Effects/flashlight-102291.ogg" id="5_416l5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h5x5l"]
 radius = 0.15576172
 height = 1.0739746
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 15
+collision_mask = 13
 script = ExtResource("1_rq7no")
+footstep_walk_sound = ExtResource("2_ieuix")
+footstep_run_sound = ExtResource("3_416l5")
+heartbeat_sound = ExtResource("4_p21r4")
+flashlight_sound = ExtResource("5_416l5")
 
 [node name="tea" parent="." instance=ExtResource("1_h5x5l")]
 transform = Transform3D(-0.29999998, 0, 2.6226832e-08, 0, 0.29999998, 0, -2.6226832e-08, 0, -0.29999998, 0, 0, 0)
@@ -30,3 +41,14 @@ light_volumetric_fog_energy = 16.0
 spot_range = 30.0
 spot_angle = 30.0
 spot_angle_attenuation = 3.1383407
+
+[node name="InteractRay" parent="Head/Camera3D" instance=ExtResource("3_qsoau")]
+transform = Transform3D(1, 0, 0, 0, 0.9986295, 0.05233596, 0, -0.05233596, 0.9986295, 0, 0, 0)
+target_position = Vector3(0, 0, -1.5)
+
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
+volume_db = -20.0
+
+[node name="HeartbeatPlayer" type="AudioStreamPlayer3D" parent="."]
+
+[node name="FlashlightPlayer" type="AudioStreamPlayer3D" parent="."]
