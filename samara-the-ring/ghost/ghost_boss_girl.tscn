@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvl7i8lr5q88i"]
+
+[ext_resource type="PackedScene" uid="uid://d0yg2o35hbikc" path="res://samara-the-ring/ghost/girl_ghost.tscn" id="1_adgbv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e1jxc"]
+radius = 0.17578125
+height = 1.0866699
+
+[node name="ghost_boss_girl" type="CharacterBody3D"]
+
+[node name="Breathing Idle" parent="." instance=ExtResource("1_adgbv")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0.059069127, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52735806, 0.036083102)
+shape = SubResource("CapsuleShape3D_e1jxc")
+
+[editable path="Breathing Idle"]
