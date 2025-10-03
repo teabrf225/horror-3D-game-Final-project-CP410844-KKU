@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2lxufs4yp7w2"]
+
+[ext_resource type="PackedScene" uid="uid://dv7gwxa51nwf3" path="res://Level/map_03f_2_fbx_scene.tscn" id="1_n5xdo"]
+[ext_resource type="PackedScene" uid="uid://d24mphxufus2g" path="res://Model/player.tscn" id="2_0erys"]
+[ext_resource type="PackedScene" uid="uid://dk7pfv0uynuxw" path="res://GUI/ui_ingame.tscn" id="3_mf2fe"]
+
+[node name="level03" type="Node3D"]
+
+[node name="map03F2_fbx_Scene" parent="." instance=ExtResource("1_n5xdo")]
+
+[node name="Player" parent="." instance=ExtResource("2_0erys")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, 0, 14.84422)
+
+[node name="UI_Ingame" parent="." instance=ExtResource("3_mf2fe")]
