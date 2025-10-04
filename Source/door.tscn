@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgmq30vjifneo"]
+[gd_scene load_steps=19 format=3 uid="uid://cgmq30vjifneo"]
 
 [ext_resource type="Material" uid="uid://cxlvmsbwfdros" path="res://Materials/Steel01.tres" id="1_e2xlm"]
+[ext_resource type="Texture2D" uid="uid://cf0t70rvbw24f" path="res://asset/mambo.jpg" id="1_s71mi"]
 [ext_resource type="Script" uid="uid://bvtdt76xoi3mj" path="res://Interact/door.gd" id="1_vryoo"]
 [ext_resource type="Material" uid="uid://dtwfwyujwauy3" path="res://Materials/Steel_White.tres" id="2_vryoo"]
 [ext_resource type="Texture2D" uid="uid://bea54vvdg367w" path="res://Texture/Glass.jpg" id="4_qnhst"]
+[ext_resource type="AudioStream" uid="uid://ishr52l71hbv" path="res://Sound_Effects/mambo_2_0_uma_musume.ogg" id="5_qoage"]
 [ext_resource type="Material" uid="uid://dmatpjiogdl0v" path="res://Materials/sceen.tres" id="5_s71mi"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c8qrn"]
@@ -29,22 +31,6 @@ data = PackedVector3Array(-0.049999997, 0.074999996, 0.005, 0.049999997, 0.07499
 material = ExtResource("5_s71mi")
 size = Vector3(0.08, 0.03, 0.01)
 
-[sub_resource type="Animation" id="Animation_s71mi"]
-resource_name = "open"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("pivot:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_qoage"]
 length = 0.001
 tracks/0/type = "value"
@@ -58,6 +44,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/CanvasLayer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_lunw5"]
@@ -76,10 +74,42 @@ tracks/0/keys = {
 "values": [Vector3(0, 1.5707964, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_nliem"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/CanvasLayer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_s71mi"]
+resource_name = "open"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nliem"]
 _data = {
 &"RESET": SubResource("Animation_qoage"),
 &"close": SubResource("Animation_lunw5"),
+&"jump_scare": SubResource("Animation_nliem"),
 &"open": SubResource("Animation_s71mi")
 }
 
@@ -107,6 +137,7 @@ mesh = SubResource("BoxMesh_lunw5")
 script = ExtResource("1_vryoo")
 door_type = "code"
 animation_play = NodePath("../../../../AnimationPlayer")
+jump_scare_sound = ExtResource("5_qoage")
 interact_text = "pessword"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pivot/knob/MeshInstance3D/StaticBody3D"]
@@ -115,6 +146,21 @@ shape = SubResource("ConcavePolygonShape3D_qnhst")
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="pivot/knob"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9317367, 0.31002593, 0.0582826)
 mesh = SubResource("BoxMesh_nliem")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="pivot"]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="pivot/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 236.0
+offset_top = 2.0
+offset_right = -227.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_s71mi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
