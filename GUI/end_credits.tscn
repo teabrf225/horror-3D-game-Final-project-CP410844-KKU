@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctc3n0mss67xy"]
+
+[ext_resource type="VideoStream" uid="uid://dgrgqqcutiitw" path="res://Texture/EndCredits3Dgame.ogv" id="1_rg0ym"]
+
+[node name="EndCredits" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -962.0
+offset_top = -539.0
+offset_right = 958.0
+offset_bottom = 541.0
+size_flags_stretch_ratio = 0.0
+stream = ExtResource("1_rg0ym")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.665, 0.665)
