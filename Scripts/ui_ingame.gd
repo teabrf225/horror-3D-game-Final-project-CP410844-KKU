@@ -2,8 +2,10 @@ extends Control
 
 # --- ตัวแปรใหม่สำหรับประตู ---
 var current_door: Node = null
+@onready var Options: Panel = $Options
 
 func _ready() -> void:
+	Options.visible = false
 	$pause_menu.visible = false
 	$task_exit_door_ui.visible = false
 
@@ -58,3 +60,11 @@ func resume_game():
 
 func quit_game():
 	get_tree().quit()
+
+
+func _on_setting_pressed() -> void:
+	Options.visible = !Options.visible
+
+
+func _on_back_pressed() -> void:
+	Options.visible = !Options.visible
