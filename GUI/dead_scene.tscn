@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqovfeccp8kt6"]
+
+[ext_resource type="Script" uid="uid://c7xu6cc8jg07o" path="res://GUI/dead_scene.gd" id="1_cgacd"]
+[ext_resource type="Texture2D" uid="uid://bj83arnxj5rq8" path="res://Texture/dead.png" id="1_g86un"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cgacd"]
+
+[node name="deadScene" type="Node2D"]
+script = ExtResource("1_cgacd")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1284.0
+offset_bottom = 726.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cgacd")
+
+[node name="Dead" type="Sprite2D" parent="."]
+position = Vector2(637.5, 364)
+scale = Vector2(1.1183075, 1.1503876)
+texture = ExtResource("1_g86un")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 538.0
+offset_top = 435.0
+offset_right = 750.0
+offset_bottom = 520.0
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
