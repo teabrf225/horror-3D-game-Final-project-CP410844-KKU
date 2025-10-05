@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://c532ff12sdiu2"]
+
+[ext_resource type="Material" uid="uid://bwmbirhc3dn8s" path="res://Materials/hospital_room_wall.tres" id="1_3noq7"]
+[ext_resource type="Material" uid="uid://cwwfuhiqpehxf" path="res://Materials/Wood.tres" id="2_7rr82"]
+[ext_resource type="Material" uid="uid://dkxs2w3mfxdpg" path="res://Materials/wall_concrete.tres" id="3_s3m01"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4ond"]
+material = ExtResource("1_3noq7")
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sym4k"]
+material = ExtResource("2_7rr82")
+size = Vector3(0.8, 0.8, 0.9)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e23nb"]
+material = ExtResource("3_s3m01")
+size = Vector3(0.1, 0.2, 0.1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lgsn3"]
+data = PackedVector3Array(-1, 0.5, 0.5, 1, 0.5, 0.5, -1, -0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, -1, -0.5, 0.5, 1, 0.5, -0.5, -1, 0.5, -0.5, 1, -0.5, -0.5, -1, 0.5, -0.5, -1, -0.5, -0.5, 1, -0.5, -0.5, 1, 0.5, 0.5, 1, 0.5, -0.5, 1, -0.5, 0.5, 1, 0.5, -0.5, 1, -0.5, -0.5, 1, -0.5, 0.5, -1, 0.5, -0.5, -1, 0.5, 0.5, -1, -0.5, -0.5, -1, 0.5, 0.5, -1, -0.5, 0.5, -1, -0.5, -0.5, 1, 0.5, 0.5, -1, 0.5, 0.5, 1, 0.5, -0.5, -1, 0.5, 0.5, -1, 0.5, -0.5, 1, 0.5, -0.5, -1, -0.5, 0.5, 1, -0.5, 0.5, -1, -0.5, -0.5, 1, -0.5, 0.5, 1, -0.5, -0.5, -1, -0.5, -0.5)
+
+[node name="Medic_box" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_g4ond")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.075)
+mesh = SubResource("BoxMesh_sym4k")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.075)
+mesh = SubResource("BoxMesh_sym4k")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.5)
+mesh = SubResource("BoxMesh_e23nb")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.5)
+mesh = SubResource("BoxMesh_e23nb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_lgsn3")

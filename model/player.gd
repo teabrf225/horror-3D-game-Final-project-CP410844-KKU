@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 # --- movement ---
 var SPEED = 1.0
-var SPRINT_SPEED = 4.0
+var SPRINT_SPEED = 4.5
 var crouch_speed = 0.4
 const JUMP_VELOCITY = 3.5
 var CameraSensitivity = 0.05
@@ -70,7 +70,7 @@ func _ready():
 	if heartbeat_sound:
 		heartbeat_sound.loop = true
 	heartbeat_player.stream = heartbeat_sound
-	heartbeat_player.volume_db = -35
+	heartbeat_player.volume_db = -30
 	heartbeat_player.play()
 
 func _input(event: InputEvent) -> void:
@@ -141,7 +141,7 @@ func _process(delta: float) -> void:
 	sprint_slider.modulate.b = new_color.b
 	
 	# heartbeat effect
-	heartbeat_player.volume_db = lerp(-35, 0, 1.0 - stamina_ratio)
+	heartbeat_player.volume_db = lerp(-35, 80, 1.0 - stamina_ratio)
 	heartbeat_player.pitch_scale = lerp(1.0, 2.0, 1.0 - stamina_ratio)
 
 func _physics_process(delta: float) -> void:

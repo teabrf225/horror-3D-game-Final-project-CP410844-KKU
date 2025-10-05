@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bwmbirhc3dn8s"]
+
+[ext_resource type="Texture2D" uid="uid://bxldcutk11o7w" path="res://Texture/concrete_floor.jpg" id="1_2o80r"]
+[ext_resource type="Texture2D" uid="uid://b0pd8qka6tlcm" path="res://Texture/concrete-wall-texture.jpg" id="2_o31j3"]
+
+[resource]
+metallic = 1.0
+metallic_texture = ExtResource("1_2o80r")
+roughness_texture = ExtResource("2_o31j3")
+uv1_scale = Vector3(4.055, 4.055, 4.055)

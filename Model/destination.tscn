@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckhrbya2jad3w"]
+
+[ext_resource type="Script" uid="uid://dlmb7jnfp6fv3" path="res://Scripts/destination.gd" id="1_uv8qr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h0bh1"]
+
+[node name="destination" type="Node3D"]
+script = ExtResource("1_uv8qr")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_h0bh1")
+debug_color = Color(0.972549, 0, 0.43529412, 1)
+
+[connection signal="body_entered" from="Area3D" to="." method="enter_trigger"]
