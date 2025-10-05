@@ -10,7 +10,10 @@ Development Game-3D Version Demo
 ## เอกสารโครงงาน Game 2D
 Docs:
 
-# Member of AI Group-09
+## ลิ้งค์สำหรับทดสอบเล่นเกม
+https://teagamertv.itch.io/sector-akb-s
+
+## Member of AI Group-09
 (EN)
 1. Krissanapong Songkramsong 663380251-8 AI-Sec.02
 2. Tanatorn Boontem 663380267-3 AI-Sec.01
