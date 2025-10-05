@@ -64,4 +64,4 @@ func _on_exit_area_3d_body_entered(body: Node3D) -> void:
 		print("win")
 		player.queue_free()
 		AudioManager.stop_bgm()
-		pass # Replace with function body.
+		get_tree().change_scene_to_file("res://GUI/end_credits.tscn")

@@ -120,6 +120,7 @@ grow_vertical = 2
 [node name="pause_menu" parent="." instance=ExtResource("1_2e5gc")]
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
