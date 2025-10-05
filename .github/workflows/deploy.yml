@@ -1,0 +1,76 @@
+name: Build & Deploy Godot Web (with Git LFS + Templates)
+
+on:
+  push:
+    branches:
+      - main        # ถ้า branch ที่คุณใช้ไม่ใช่ main ให้ปรับ
+
+jobs:
+  build_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout พร้อมดึง LFS
+      - name: Checkout repository (with LFS)
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      # 2. ดึงไฟล์ LFS จริง (convert pointers → ไบนารี)
+      - name: Pull and checkout LFS objects
+        run: |
+          git lfs pull
+          git lfs checkout
+
+      # 3. ติดตั้ง export templates จาก .tpz
+      - name: Setup Godot export templates
+        run: |
+          GODOT_VERSION="4.5-stable"   # <-- เปลี่ยนให้ตรงกับเวอร์ชันของคุณ
+          # สร้างโฟลเดอร์ templates
+          mkdir -p $HOME/.local/share/godot/export_templates/${GODOT_VERSION}
+
+          # ดาวน์โหลด .tpz (ตัวอย่าง: จาก Google Drive หรือ URL อื่น)
+          FILE_ID="1tsjBmluAo517IdLnFZNp5s0dyXt444e4"
+          # ถ้าใช้ Google Drive direct download
+          wget "https://drive.google.com/uc?export=download&id=${FILE_ID}" -O export_templates.tpz
+          # หรือ ถ้า host บน URL อื่น เช่น
+          # wget "https://your-domain.com/path/to/Godot_v4.5-stable_export_templates.tpz" -O export_templates.tpz
+
+          # แตกไฟล์ .tpz ลงโฟลเดอร์ templates
+          unzip export_templates.tpz -d $HOME/.local/share/godot/export_templates/${GODOT_VERSION}
+
+          # ถ้ามีโฟลเดอร์ “templates” ภายใน ให้ย้ายไฟล์ออกมา
+          if [ -d "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}/templates" ]; then
+            mv $HOME/.local/share/godot/export_templates/${GODOT_VERSION}/templates/* $HOME/.local/share/godot/export_templates/${GODOT_VERSION}/
+            rm -rf $HOME/.local/share/godot/export_templates/${GODOT_VERSION}/templates
+          fi
+
+      # 4. ดาวน์โหลด Godot executable (headless / non-editor) สำหรับ Linux
+      - name: Download Godot headless executable
+        run: |
+          GODOT_VERSION="4.5-stable"
+          # ตัวอย่าง URL — ปรับให้ตรงกับไฟล์ที่ใช้จริง
+          wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_linux.x86_64.zip -O godot.zip
+          unzip godot.zip -d godot
+          chmod +x godot/Godot_v${GODOT_VERSION}_linux.x86_64
+
+      # 5. Build / Export เป็น Web (HTML5)
+      - name: Build Web export
+        run: |
+          # สมมุติว่า project.godot อยู่ที่ root
+          # ชื่อ preset ต้องตรงกับใน export_presets.cfg
+          ./godot/Godot_v${GODOT_VERSION}_linux.x86_64 --headless --export "Web" build/
+
+      # 6. เตรียมโฟลเดอร์ deploy (docs/)
+      - name: Prepare deploy folder
+        run: |
+          mkdir -p docs
+          cp -R build/* docs/
+
+      # 7. Deploy ไปยัง GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
