@@ -1,14 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://dk7pfv0uynuxw"]
+[gd_scene load_steps=12 format=3 uid="uid://dk7pfv0uynuxw"]
 
 [ext_resource type="PackedScene" uid="uid://d0l3elvqcral7" path="res://GUI/pause_menu.tscn" id="1_2e5gc"]
 [ext_resource type="Script" uid="uid://bgelyn7m3qebg" path="res://Scripts/ui_ingame.gd" id="1_op0ap"]
 [ext_resource type="PackedScene" uid="uid://c8scu0bsg8jh5" path="res://GUI/task_exit_door_ui.tscn" id="2_ysxqv"]
 [ext_resource type="FontFile" uid="uid://bifi57up4j8qq" path="res://font/NotoSansThai-Medium.ttf" id="4_ioqlx"]
+[ext_resource type="Script" uid="uid://diaktutmxssp2" path="res://Scripts/audio_control.gd" id="5_m81xr"]
+[ext_resource type="Script" uid="uid://c5sf27scwlt6h" path="res://GUI/Menu_Game/fullscreen_control.gd" id="5_uiabg"]
 
 [sub_resource type="Theme" id="Theme_ioqlx"]
 default_font = ExtResource("4_ioqlx")
 
 [sub_resource type="ImageTexture" id="ImageTexture_u3iqr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m81xr"]
+bg_color = Color(0, 0, 0, 0.8235294)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uf4hl"]
+color = Color(0, 0, 0, 0.513726)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_l38d0"]
+color = Color(1, 1, 0.67451, 1)
+thickness = 6
 
 [node name="UI_Ingame" type="Control"]
 process_mode = 3
@@ -123,11 +140,117 @@ theme_override_fonts/font = ExtResource("4_ioqlx")
 theme_override_font_sizes/font_size = 16
 text = "Game developed by นายธนธร บุญเต็ม 663380267-3 AI  SEC01"
 
+[node name="Options" type="Panel" parent="."]
+visible = false
+modulate = Color(0.973535, 0.9735351, 0.973535, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.607
+anchor_top = 0.525
+anchor_right = 0.607
+anchor_bottom = 0.525
+offset_left = -284.264
+offset_top = -176.2
+offset_right = 284.736
+offset_bottom = 176.8
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m81xr")
+
+[node name="Label" type="Label" parent="Options"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 19.0
+offset_right = 180.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 60
+text = "Options"
+
+[node name="Music" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.164
+anchor_top = 0.346
+anchor_right = 0.164
+anchor_bottom = 0.346
+offset_left = -42.316
+offset_top = -21.138
+offset_right = 42.684
+offset_bottom = 20.862
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Music"
+
+[node name="SFX" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.166
+anchor_top = 0.581
+anchor_right = 0.166
+anchor_bottom = 0.581
+offset_left = -42.454
+offset_top = -21.093
+offset_right = 42.546
+offset_bottom = 20.907
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "SFX"
+
+[node name="back" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.92
+anchor_top = 0.129
+anchor_right = 0.92
+anchor_bottom = 0.129
+offset_left = -21.48
+offset_top = -38.537
+offset_right = 21.52
+offset_bottom = 38.463
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "X"
+flat = true
+alignment = 0
+
+[node name="AudioControl" type="HSlider" parent="Options"]
+modulate = Color(1.6999253, 1.6999253, 1.6999253, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.347
+anchor_top = 0.46
+anchor_right = 0.347
+anchor_bottom = 0.46
+offset_left = -145.443
+offset_top = -17.38
+offset_right = 145.557
+offset_bottom = 17.62
+theme_override_styles/slider = SubResource("StyleBoxLine_uf4hl")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_l38d0")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("5_m81xr")
+
+[node name="FullscreenControl" type="CheckButton" parent="Options"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 286.0
+offset_right = 173.0
+offset_bottom = 317.0
+theme_override_font_sizes/font_size = 35
+text = "Fullscreen"
+script = ExtResource("5_uiabg")
+
 [connection signal="text_submitted" from="task_exit_door_ui/LineEdit" to="." method="_on_code_submitted"]
 [connection signal="pressed" from="task_exit_door_ui/confirm" to="." method="confirm_password_exit_door"]
 [connection signal="pressed" from="task_exit_door_ui/back" to="." method="exit_password_exit_door"]
 [connection signal="pressed" from="pause_menu/VBoxContainer/resume" to="." method="resume_game"]
+[connection signal="pressed" from="pause_menu/VBoxContainer/Setting" to="." method="_on_setting_pressed"]
 [connection signal="pressed" from="pause_menu/VBoxContainer/quit_game" to="." method="quit_game"]
+[connection signal="pressed" from="Options/back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="Options/FullscreenControl" to="Options/FullscreenControl" method="_on_toggled"]
 
 [editable path="task_exit_door_ui"]
 [editable path="pause_menu"]

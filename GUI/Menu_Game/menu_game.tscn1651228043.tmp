@@ -1,0 +1,192 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcmvkkx6ovlfh"]
+
+[ext_resource type="Texture2D" uid="uid://b5gvshpueogc1" path="res://Interface/Menu_Game/Backgound_main_menu.png" id="1_6hw7b"]
+[ext_resource type="Script" uid="uid://sah41kihxeif" path="res://Interface/Menu_Game/menu_game.gd" id="1_yl80j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1vqnn"]
+texture = ExtResource("1_6hw7b")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl80j"]
+bg_color = Color(0.17927, 0, 0.0236393, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="menu_game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yl80j")
+
+[node name="BackGround" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1vqnn")
+
+[node name="Main_buttons" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 238.0
+offset_bottom = 512.0
+
+[node name="start" type="Button" parent="Main_buttons"]
+modulate = Color(1, 1, 0.67451, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Start"
+flat = true
+alignment = 0
+
+[node name="option" type="Button" parent="Main_buttons"]
+modulate = Color(1, 1, 0.67451, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Option"
+flat = true
+alignment = 0
+
+[node name="credit" type="Button" parent="Main_buttons"]
+modulate = Color(1, 1, 0.67451, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Credit"
+flat = true
+alignment = 0
+
+[node name="exit" type="Button" parent="Main_buttons"]
+modulate = Color(1, 1, 0.67451, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+flat = true
+alignment = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 77.0
+offset_right = 445.0
+offset_bottom = 163.0
+theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Pestilentia Orbis"
+
+[node name="Options" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.607
+anchor_top = 0.525
+anchor_right = 0.607
+anchor_bottom = 0.525
+offset_left = -284.264
+offset_top = -176.2
+offset_right = 284.736
+offset_bottom = 176.8
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yl80j")
+
+[node name="Label" type="Label" parent="Options"]
+modulate = Color(1, 1, 0.67451, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 19.0
+offset_right = 180.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 40
+text = "Option"
+
+[node name="back" type="Button" parent="Options"]
+modulate = Color(1, 1, 0.67451, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.92
+anchor_top = 0.129
+anchor_right = 0.92
+anchor_bottom = 0.129
+offset_left = -21.48
+offset_top = -38.537
+offset_right = 21.52
+offset_bottom = 38.463
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "X"
+flat = true
+alignment = 0
+
+[node name="Credits" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.607
+anchor_top = 0.525
+anchor_right = 0.607
+anchor_bottom = 0.525
+offset_left = -284.264
+offset_top = -176.2
+offset_right = 284.736
+offset_bottom = 176.8
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yl80j")
+
+[node name="Label" type="Label" parent="Credits"]
+modulate = Color(1, 1, 0.67451, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 19.0
+offset_right = 180.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+
+[node name="name" type="Label" parent="Credits"]
+modulate = Color(1, 1, 0.67451, 1)
+layout_mode = 0
+offset_left = 76.0
+offset_top = 82.0
+offset_right = 495.0
+offset_bottom = 304.0
+theme_override_font_sizes/font_size = 30
+text = "CP-AI
+Tanatorn Boontem
+Krissanapong Songkramsong
+Pakawat Chuchotiros
+Phinatkanin Phisitkul"
+
+[node name="back" type="Button" parent="Credits"]
+modulate = Color(1, 1, 0.67451, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.92
+anchor_top = 0.129
+anchor_right = 0.92
+anchor_bottom = 0.129
+offset_left = -21.48
+offset_top = -38.537
+offset_right = 21.52
+offset_bottom = 38.463
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "X"
+flat = true
+alignment = 0
+
+[connection signal="pressed" from="Main_buttons/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Main_buttons/option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="Main_buttons/credit" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="Main_buttons/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Options/back" to="." method="_on_back_options_pressed"]
+[connection signal="pressed" from="Credits/back" to="." method="_on_back_options_pressed"]
