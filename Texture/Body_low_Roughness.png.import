@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtwfjs0k5sjxx"
-path.s3tc="res://.godot/imported/Dress_low_Base_Color.png-dc2d13356b332e49efb2cb241ac4d9a1.s3tc.ctex"
+uid="uid://bdrqjm5w12q10"
+path.s3tc="res://.godot/imported/Body_low_Roughness.png-b7434e7e19b06c0e6aed9ac12dd88ec9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/Dress_low_Base_Color.png"
-dest_files=["res://.godot/imported/Dress_low_Base_Color.png-dc2d13356b332e49efb2cb241ac4d9a1.s3tc.ctex"]
+source_file="res://Texture/Body_low_Roughness.png"
+dest_files=["res://.godot/imported/Body_low_Roughness.png-b7434e7e19b06c0e6aed9ac12dd88ec9.s3tc.ctex"]
 
 [params]
 

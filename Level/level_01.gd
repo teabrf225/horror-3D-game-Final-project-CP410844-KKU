@@ -11,3 +11,5 @@ func _ready() -> void:
 func _on_player_entered_exit_zore(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		animation_player.play("end_level01")
+		await animation_player.animation_finished
+		get_tree().change_scene_to_file("res://Level/level02.tscn")

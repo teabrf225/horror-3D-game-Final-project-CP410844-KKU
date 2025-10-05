@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brxob2sgflsoi"
-path.s3tc="res://.godot/imported/Body_low_Metallic.png-42aa39dede503a145b282cb6db321cdd.s3tc.ctex"
+uid="uid://dhpecetbv0tsm"
+path.s3tc="res://.godot/imported/Hair_low_Metallic.png-39effd3d9ab3f38432a553c389b039ba.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/Body_low_Metallic.png"
-dest_files=["res://.godot/imported/Body_low_Metallic.png-42aa39dede503a145b282cb6db321cdd.s3tc.ctex"]
+source_file="res://Texture/Hair_low_Metallic.png"
+dest_files=["res://.godot/imported/Hair_low_Metallic.png-39effd3d9ab3f38432a553c389b039ba.s3tc.ctex"]
 
 [params]
 

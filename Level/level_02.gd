@@ -10,4 +10,4 @@ func _ready() -> void:
 
 func _on_player_entered_exit_zore(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		pass
+		get_tree().change_scene_to_file("res://Level/level_03.tscn")

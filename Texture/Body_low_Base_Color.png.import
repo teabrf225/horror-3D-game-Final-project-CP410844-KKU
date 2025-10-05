@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgckn8ag50fl4"
-path.s3tc="res://.godot/imported/Hair_low_Base_Color.png-c39dc6bc1b9692041028ff1c57891518.s3tc.ctex"
+uid="uid://c5bhjp8265dtb"
+path.s3tc="res://.godot/imported/Body_low_Base_Color.png-2630200ad56db87ea6c71dcd26ca3788.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/Hair_low_Base_Color.png"
-dest_files=["res://.godot/imported/Hair_low_Base_Color.png-c39dc6bc1b9692041028ff1c57891518.s3tc.ctex"]
+source_file="res://Texture/Body_low_Base_Color.png"
+dest_files=["res://.godot/imported/Body_low_Base_Color.png-2630200ad56db87ea6c71dcd26ca3788.s3tc.ctex"]
 
 [params]
 

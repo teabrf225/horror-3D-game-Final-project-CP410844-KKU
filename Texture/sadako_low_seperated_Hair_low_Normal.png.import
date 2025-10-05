@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cftjibvnti4b3"
-path="res://.godot/imported/sadako_low_seperated_Body_low_Normal.png-c666cefcb9d4fb9980fb0a04450d5786.ctex"
+uid="uid://bj0ra84yq1dyr"
+path="res://.godot/imported/sadako_low_seperated_Hair_low_Normal.png-63fcd007c75c785f24fa3232c3f78e23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/sadako_low_seperated_Body_low_Normal.png"
-dest_files=["res://.godot/imported/sadako_low_seperated_Body_low_Normal.png-c666cefcb9d4fb9980fb0a04450d5786.ctex"]
+source_file="res://Texture/sadako_low_seperated_Hair_low_Normal.png"
+dest_files=["res://.godot/imported/sadako_low_seperated_Hair_low_Normal.png-63fcd007c75c785f24fa3232c3f78e23.ctex"]
 
 [params]
 

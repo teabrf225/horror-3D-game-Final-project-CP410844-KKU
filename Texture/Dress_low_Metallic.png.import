@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdrqjm5w12q10"
-path.s3tc="res://.godot/imported/Body_low_Roughness.png-28aefd2cec50e0dece75cc0cb748d7c1.s3tc.ctex"
+uid="uid://vg7lp1ldo120"
+path.s3tc="res://.godot/imported/Dress_low_Metallic.png-d1a0954fde1887ebecffbc67bd5238cc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/Body_low_Roughness.png"
-dest_files=["res://.godot/imported/Body_low_Roughness.png-28aefd2cec50e0dece75cc0cb748d7c1.s3tc.ctex"]
+source_file="res://Texture/Dress_low_Metallic.png"
+dest_files=["res://.godot/imported/Dress_low_Metallic.png-d1a0954fde1887ebecffbc67bd5238cc.s3tc.ctex"]
 
 [params]
 
