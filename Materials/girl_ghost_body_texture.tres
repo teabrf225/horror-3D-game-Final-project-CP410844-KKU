@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://b6f7g6ac8qq2e"]
+
+[ext_resource type="Texture2D" uid="uid://dfn1o8n8pgeit" path="res://Model/samara-the-ring/textures/Body_low_Base_Color.png" id="1_hqdil"]
+[ext_resource type="Texture2D" uid="uid://dyhi3l154dxxj" path="res://Model/samara-the-ring/textures/Body_low_Metallic.png" id="2_2hig2"]
+[ext_resource type="Texture2D" uid="uid://dd8na8ixrdtn4" path="res://Model/samara-the-ring/textures/Body_low_Roughness.png" id="3_arxfa"]
+
+[resource]
+albedo_texture = ExtResource("1_hqdil")
+metallic = 1.0
+metallic_texture = ExtResource("2_2hig2")
+roughness_texture = ExtResource("3_arxfa")

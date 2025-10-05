@@ -33,7 +33,7 @@ func dead():
 	ghot_animation_player.play("jumpscare")
 	await  ghot_animation_player.animation_finished
 	player.queue_free()
-	get_tree().change_scene_to_file("res://Level/level_03.tscn")
+	get_tree().change_scene_to_file("res://GUI/dead_scene.tscn")
 
 
 func _on_area_player_entered_exit_door(body: Node3D) -> void:
@@ -50,7 +50,7 @@ func dead2():
 	ghot_animation_player2.play("jumpscare")
 	await  ghot_animation_player2.animation_finished
 	player.queue_free()
-	get_tree().change_scene_to_file("res://Level/level_03.tscn")
+	get_tree().change_scene_to_file("res://GUI/dead_scene.tscn")
 
 func _on_area_run_player_entered(body: Node3D) -> void:
 	if body.name == "Player":

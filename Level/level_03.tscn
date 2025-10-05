@@ -525,22 +525,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014025569, 0.7763741, -6.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42219186, -13.754621)
 patrol_destiantion = [NodePath("../destination"), NodePath("../destination2"), NodePath("../destination3"), NodePath("../destination4"), NodePath("../destination5"), NodePath("../destination6"), NodePath("../destination7"), NodePath("../destination8"), NodePath("../destination9"), NodePath("../destination10"), NodePath("../destination11")]
 
-[node name="Dress_low" parent="ghots/Breathing Idle/GeneralSkeleton" index="0"]
-surface_material_override/0 = null
-
-[node name="Hair_low" parent="ghots/Breathing Idle/GeneralSkeleton" index="1"]
-surface_material_override/0 = null
+[node name="NavigationAgent3D" parent="ghots" index="2"]
+debug_enabled = false
 
 [node name="ghots2" parent="." instance=ExtResource("19_2m0g4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0.42219186, -15.754621)
 visible = false
 script = null
-
-[node name="Dress_low" parent="ghots2/Breathing Idle/GeneralSkeleton" index="0"]
-surface_material_override/0 = null
-
-[node name="Hair_low" parent="ghots2/Breathing Idle/GeneralSkeleton" index="1"]
-surface_material_override/0 = null
 
 [node name="Area3D" type="Area3D" parent="ghots2"]
 monitorable = false
