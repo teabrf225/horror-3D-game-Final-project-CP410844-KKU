@@ -92,7 +92,7 @@ Docs: https://docs.google.com/document/d/1KWwPhhjWuPHtdo3HsGT4ASda3hEpa_d1cQ6CY5
 3. นายภควัต ชูโชติรส — 663380287-7 AI-Sec.02  
 4. นายภิณัฐคณิน พิสิษฐกุล — 663380528-1 AI-Sec.02  
 
- *05/09/2025*
+อัพเดพเกมล่าสุดวันที่ *05/09/2025*
 
  ## บันทึก:
 
