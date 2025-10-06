@@ -7,6 +7,10 @@ Development Game-3D Version Demo
 
 ---
 
+<p align="center">
+  <img src="https://img.itch.zone/aW1nLzIzNDU3ODY3LnBuZw==/original/%2FTS21k.png" width="80%" style="border-radius:10px; border:2px solid #222;">
+</p>
+
 ## เรื่องราว:
 
 เรื่องราวเกี่ยวกับคนธรรมดาคนหนึ่งที่จู่ๆ ก็ประสบกับปรากฏการณ์ประหลาด —  
@@ -30,6 +34,10 @@ Docs: https://docs.google.com/document/d/1KWwPhhjWuPHtdo3HsGT4ASda3hEpa_d1cQ6CY5
 
 ## ลิ้งค์สำหรับเล่นเกม ใน itch.io
 หน้าร้าน itch.io: https://teagamertv.itch.io/sector-akb-s
+
+<p align="center">
+  <img src="https://img.itch.zone/aW1nLzIzNDU3OTY5LnBuZw==/original/dI%2F2am.png" width="75%" style="border-radius:10px; border:2px solid #222;">
+</p>
 
 ---
 
