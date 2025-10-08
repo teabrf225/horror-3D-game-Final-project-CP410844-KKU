@@ -254,7 +254,7 @@ transform = Transform3D(-21, 0, -1.8358783e-06, 0, 21, 0, 1.8358783e-06, 0, -21,
 [node name="Attack_Area" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Attack_Area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 shape = SubResource("BoxShape3D_gu0b1")
 debug_color = Color(1, 0, 0.016666412, 0.41960785)
 

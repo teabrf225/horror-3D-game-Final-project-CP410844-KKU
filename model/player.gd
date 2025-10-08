@@ -149,8 +149,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		
 	# crouch
-	if crouching and $CollisionShape3D.shape.height > 0.1:
-		var crouch_height = lerp($CollisionShape3D.shape.height, 0.1, 0.2)
+	if crouching and $CollisionShape3D.shape.height > 0.5:
+		var crouch_height = lerp($CollisionShape3D.shape.height, 0.5, 0.2)
 		$CollisionShape3D.shape.height = crouch_height
 		SPEED = crouch_speed
 	if not crouching and $CollisionShape3D.shape.height < 1.074 and not Input.is_action_pressed("sprint"):

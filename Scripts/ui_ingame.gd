@@ -59,8 +59,9 @@ func resume_game():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func quit_game():
-	get_tree().quit()
-
+	print('ingame exit')
+	if get_tree():
+		get_tree().quit()
 
 func _on_setting_pressed() -> void:
 	Options.visible = !Options.visible
